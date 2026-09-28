@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+
+  --color-lime: hsl(61 70% 52%);
+  --color-error:  hsl(4, 69%, 50%);
+  --color-slate-100: hsl(202, 86%, 94%);
+  --color-slate-300: hsl(203, 41%, 72%);
+  --color-slate-500: hsl(200, 26%, 54%);
+  --color-slate-700: hsl(200, 24%, 40%);
+  --color-slate-900: hsl(202, 55%, 16%);
+
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+
+}
+@layer components {
+  .input-group {
+    &:has(.input:focus) .input-deco {
+      @apply bg-lime text-slate-900;
+    }
+    &.error .input-deco {
+      @apply bg-error/50 text-error;
+    }
+    &.error .input {
+      @apply outline-error border-error
+    }
+
+  }
+
+  .input {
+    @apply relative z-1 w-full rounded-sm border border-slate-700 p-2 text-slate-900 cursor-pointer;
+
+    &:focus {
+      @apply outline-lime;
+
+    }
+
+  }
+  
+
+  .input-deco {
+    @apply absolute bg-slate-100 px-4 py-2 font-bold;
+    
+  }
+
+
+}
